@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .btn-upload {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .hidden-file-input {
+            display: none;
+        }
+    </style>
+    <script>
+        function triggerFileUpload() {
+            document.getElementById('prescription-upload').click();
+        }
+    </script>
+</head>
+<body>
+
+    <h3>Upload Prescription</h3>
+    <button class="btn-upload" onclick="triggerFileUpload()">Upload Prescription</button>
+    <input type="file" id="prescription-upload" class="hidden-file-input" accept=".pdf,.doc,.docx" onchange="handleFileUpload(event)">
+
+    <script>
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                alert(`File selected: ${file.name}`);
+                // You can add further processing of the file here.
+            }
+        }
+    </script>
+
+</body>
+</html>
